@@ -25,7 +25,7 @@ SECRET_KEY = 'q(iyvrua^hw41h182j49t1sk%z1@5u-sox2b+_$bwgont3*pu+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sprread.pythonanywhere.com']
 
 
 # Application definition

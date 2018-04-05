@@ -13,35 +13,11 @@ def index(request):
 def thankyou(request):
     inquiry = Request()
     sky_day = request.POST['sky-day']
-    if (int(sky_day) < 10):
+    if int(sky_day) < 10:
         sky_day = '0' + sky_day
-
-
     sky_month = request.POST['sky-month']
-    if sky_month == 'January':
-        sky_month = '01'
-    if sky_month == 'February':
-        sky_month = '02'
-    if sky_month == 'March':
-        sky_month = '03'
-    if sky_month == 'April':
-        sky_month = '04'
-    if sky_month == 'May':
-        sky_month = '05'
-    if sky_month == 'June':
-        sky_month = '06'
-    if sky_month == 'July':
-        sky_month = '07'
-    if sky_month == 'August':
-        sky_month = '08'
-    if sky_month == 'September':
-        sky_month = '09'
-    if sky_month == 'October':
-        sky_month = '10'
-    if sky_month == 'November':
-        sky_month = '11'
-    if sky_month == 'December':
-        sky_month = '12'
+    month_dict = {'January': '01', 'February': '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'July': '07', 'August': '08', 'September': '09','October': '10', 'November': '11', 'December': '12'}
+    sky_month = month_dict[sky_month]
     sky_year = request.POST['sky-year']
     inquiry.diary_date = sky_year + '-' + sky_month + '-' + sky_day
     inquiry.email_sent = False
