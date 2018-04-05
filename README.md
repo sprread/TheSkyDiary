@@ -38,10 +38,10 @@ I will use Bootstrap for the CSS.
 There will be 4 tables:
 
 - Skies
-    - date YYYY.MM.DD
-    - Watermarked sky proof (instagram link)
-    - TIFF File ready to print
-    - number of purchases for a given sky
+    - diary_date (string like YYYY.MM.DD)
+    - watermarked_proof (image field)
+    - print_proof (image field)
+    - number of purchases for a given sky 
 - Customer
     - first name
     - last name
@@ -53,7 +53,7 @@ There will be 4 tables:
     - date
     - items 
 - Order Items
-    - sky ID: YYYY.MM.DD.###
+    - sky ID: YYYY.MM.DD.####
     - Order Number (many of these to one order)
 
 
@@ -61,6 +61,7 @@ There will be 4 tables:
 Week 1
 - Get Django environment setup (3 hours)
 - Get models setup (2 hours)
+        - https://github.com/PdxCodeGuild/20180116-FullStack-Day/blob/master/4%20Django/docs/06%20-%20Media%20Files.md
 - Get template setup for homepage (3 hours)
 - Get some data entered to test (4 hours)
 - create conditions for dates that don't work. (2 hours)
