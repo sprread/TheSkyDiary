@@ -45,7 +45,7 @@
         #container{
             background-color: ghostwhite;
             /*opacity: .5;*/
-            border-radius: 10px;
+            border-radius: 2px;
             margin: auto;
             width: 75%;
             padding: 10px;
@@ -80,13 +80,13 @@
             {% csrf_token %}
             <!--Date Picker-->
             <div id="container">
-                <select id="selectYear" class="dropdown-select" name="sky-year">
+                <select required id="selectYear" class="dropdown-select" name="sky-year">
                         <option>Year</option>
                 </select>
-                <select id="selectMonth" class="dropdown-select" name="sky-month">
+                <select required id="selectMonth" class="dropdown-select" name="sky-month" >
                         <option>Month</option>
                 </select>
-                <select id="selectDay" class="dropdown-select" name="sky-day">
+                <select required id="selectDay" class="dropdown-select" name="sky-day" >
                         <option>Day</option>
                 </select>
                 <button id="see_my_sky_bt">See my Sky</button>
@@ -94,10 +94,9 @@
 
                 <!--email-->
                 <div id="email_submit">
-                    <input type="text" name="email" placeholder="email">
+                    <input type="text" name="email" placeholder="email" required>
                     <button type="submit" formaction="{% url 'skydiary:thankyou' %}">Send Sky Diary</button>
                 </div>
-            </div>
         </form>
 
     </div>
@@ -204,6 +203,13 @@
             return false;
 
         }
+
+
+
+        select.value = 'January';
+        select1.value = '1';
+        select2.value = '2016';
+
 
     </script>
 </body>

@@ -123,3 +123,14 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/uploaded_files/' # added this to store images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_files') # added this to store images
 
+# email
+
+from .secrets import smtp_password
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'yourskydiary@gmail.com'
+EMAIL_HOST_PASSWORD = smtp_password
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = 'The Sky Diary <yourskydiary@gmail.com>'
+# added per Stack Overflow
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

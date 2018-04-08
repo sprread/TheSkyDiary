@@ -8,4 +8,6 @@ app_name = 'skydiary'
 urlpatterns = [
     path('', views.index, name='index'),
     path('thankyou/', views.thankyou, name="thankyou"),
+    path('prints/', views.prints, name="prints"),
+
 ]

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Your Sky Diary</title>
+</head>
+<body>
+    <h1>PURCHASE YOUR SKY DIARY</h1>
+    <h2>Please fill out the following information and we will send email an invoice:</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="first name">
+        <input type="text" name="last_name" placeholder="last name">
+        <input type="tel" name="telephone" placeholder="phone number">
+        <input type="text" name="notes" placeholder="notes">
+
+
+
+    </form>
+</body>
+</html>
