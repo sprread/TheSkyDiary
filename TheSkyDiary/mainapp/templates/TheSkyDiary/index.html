@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>The Sky Diary</title>
+    <!--from https://getbootstrap.com/docs/4.1/getting-started/introduction/-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
     <style>
         h1{
             /*position: absolute;*/
@@ -36,18 +39,16 @@
             object-fit: cover;
         }
 
-        .dropdown-select{
-        }
 
         #email_submit{
             display: none;
         }
         #container{
-            background-color: ghostwhite;
+            color: rgb(255, 255, 255);
             /*opacity: .5;*/
             border-radius: 2px;
             margin: auto;
-            width: 75%;
+            width: 100%;
             padding: 10px;
         }
         .foreground{
@@ -80,22 +81,22 @@
             {% csrf_token %}
             <!--Date Picker-->
             <div id="container">
-                <select required id="selectYear" class="dropdown-select" name="sky-year">
+                <select required id="selectYear" class="btn btn-secondary" name="sky-year">
                         <option>Year</option>
                 </select>
-                <select required id="selectMonth" class="dropdown-select" name="sky-month" >
+                <select required id="selectMonth" class="btn btn-secondary" name="sky-month" >
                         <option>Month</option>
                 </select>
-                <select required id="selectDay" class="dropdown-select" name="sky-day" >
+                <select required id="selectDay" class="btn btn-secondary" name="sky-day" >
                         <option>Day</option>
                 </select>
-                <button id="see_my_sky_bt">See my Sky</button>
+                <button class="btn btn-primary">See my Sky</button>
             </div>
 
                 <!--email-->
                 <div id="email_submit">
                     <input type="text" name="email" placeholder="email" required>
-                    <button type="submit" formaction="{% url 'skydiary:thankyou' %}">Send Sky Diary</button>
+                    <button type="submit" class="btn btn-primary" formaction="{% url 'skydiary:thankyou' %}">Send Sky Diary</button>
                 </div>
         </form>
 
@@ -125,8 +126,7 @@
             <img src="https://lh3.googleusercontent.com/w5K1bBWrQK5ezYStPn2xa1Ac97aY_tRY7SAdqNyNr6a3PLpQSwBo5MEd3c_dP2linwV0w4Jh0bjIChNqDSDPiV2XM_O49a4GPQNAjPAcf9W3p25MKfAORvYV-lLkphGo9thqaoKQb26Yy-Su3OxxC5_L6vfSTyh0UOwu5ezmwVJYkAWqA-gzX7RTHW2QJT4b1pcC-pAKLtEqI_S8byG5zJ6jUDrdWx-j16OZGZV8kl2We4b-MTkferYS_famBk9AZFsbyW1GkX7A2qzhARxkgs5YC9v0oDrcPX7oAR7vzODUdWlmX9t93dhqZd1wvQDlJm4AsHpOqyrhBVAoPnKKjwQ3bthBEZMp5bTdM-GVEbAdSmbtcvzBYZvSSVbFRZalu3SWd1AbryGpgZafYm3jWG3SgvtZ4YzSRTdlDtkS246u-9GcZRGgc3gboQQRrRHj9fsYizXn-3OV2EgcL_QLzIugfB9QRMwJao03KL2VIOGUkP7wjzobg1YlX34iIYLPTRDYhhD_l5Ft42d2j2NCf3A3kc7loe5GQSmmN1EvpeYNXnJPMUiAG4dj2kil=s1444-w1436-h1444-no " class="image">
         </div>
         <div div class="row1">
-            <img src="https://lh3.googleusercontent.com/xRWt4-QFYvrABdhGdDcxqPqmc1olm29_0ydmeMaulCfn4i5AKwqcBVAfzpozBJMwQR3Ggj6Nq_jtpGaYT9qgQ629pHex7bhy3b8_C4y6L2QFlyCXcsN5hmOeVPNxR_QcExq2kLgCdQVTikIMhXjdY3_vUzsDdD3pStof7gm2mcPC4jpzL9qMYC60CKJQ9NwLwNLtFj3cZUw0kaFpG_IPXqIE7Q2-02oRS32NWxHYlguqdD-NMu0PU2z6t2qO5nMfGLsBiNo4luDEWJ6QbCkB-Ofa0YUjKcziZoodTYWYfiDV4m45M4PpMmQbEf8wwnypwvEuhQht2-ZED9WUWKRjwn1VgkA6gayjBwCrz54ud8-8Scy2aD9TSrn9jFg-2PCZUX_Qcxze2zAt43fBOwlnVVGP8Ytv-5mUZp47jr4hrxWpaYtU6pXgupu6z7nzD-t-2fgyAWCUoZ8Arp4dgvemS1ih40yv6RCW1ezeqQJuTN83dpYcs59HtwzoNz6lOehUswU11HMvK_0CFRz6UPU-mSNkKXjzEDk8NFzVbKjgEHzeFQe4pF-xamNxqotU=s1542-w1542-h1444-no " class="image">
-            <img src="https://lh3.googleusercontent.com/pmYtFzgVIrqxIYWccPdj6S9mTz6cpxViHhdPD4AgH9bCz3s89OVFoNKdEtjQPIZD8WaQb_3_ANs0jdpRlX4mrkrhmZU9GzZHliEx8QfCvC_BWI9pdFD_0XrHNXGazv82uAPLwAjkB7JAIkSQl5AWHBTJnovH2ZtJ8cDHDWi8gWQ2tQPzUfTwzC38qWyfSBUMERyOQYyVVYMn2CbOPbqyyIGgH1UD3byPYQEk5BCoZ25Nm5jLjQJdTb6ZBWaJ2Yp5dwJpZHYzgbyszK_YyHeQuKW1UAqfbOw3UaQBlEHKWDiknULY52k0DLFX0xWCYQ8SUmeYanvNSADbuwYtOxmy_xTdH9vpSNIUKepea0vToKmA4HZ-Ri-qhnkQi9h0Pyxg0ncJ1ma41FHhG8PrNs5sdoaT6xDAtXAmIt_vfzMZZJ7pClPVIz3p8_gtJOjgFYNotWF2Bx-tW4W2Z5V2F5JIvNvF5sf54DlmzvuxbgfoqMnpEZipMTflDqpRnP9me8axMDNCHaRQy8_f7M-eO98buVHOwEU-Xk4cn7O2ZPPyATY1KAgv1OfTM8nEsK2G=s1528-w1528-h1444-no " class="image">
+             <img src="https://lh3.googleusercontent.com/pmYtFzgVIrqxIYWccPdj6S9mTz6cpxViHhdPD4AgH9bCz3s89OVFoNKdEtjQPIZD8WaQb_3_ANs0jdpRlX4mrkrhmZU9GzZHliEx8QfCvC_BWI9pdFD_0XrHNXGazv82uAPLwAjkB7JAIkSQl5AWHBTJnovH2ZtJ8cDHDWi8gWQ2tQPzUfTwzC38qWyfSBUMERyOQYyVVYMn2CbOPbqyyIGgH1UD3byPYQEk5BCoZ25Nm5jLjQJdTb6ZBWaJ2Yp5dwJpZHYzgbyszK_YyHeQuKW1UAqfbOw3UaQBlEHKWDiknULY52k0DLFX0xWCYQ8SUmeYanvNSADbuwYtOxmy_xTdH9vpSNIUKepea0vToKmA4HZ-Ri-qhnkQi9h0Pyxg0ncJ1ma41FHhG8PrNs5sdoaT6xDAtXAmIt_vfzMZZJ7pClPVIz3p8_gtJOjgFYNotWF2Bx-tW4W2Z5V2F5JIvNvF5sf54DlmzvuxbgfoqMnpEZipMTflDqpRnP9me8axMDNCHaRQy8_f7M-eO98buVHOwEU-Xk4cn7O2ZPPyATY1KAgv1OfTM8nEsK2G=s1528-w1528-h1444-no " class="image">
             <img src="https://lh3.googleusercontent.com/bqB6-IBXKOA9_aY1HI-_bIuRIbKfGscbYfS5MKsuwXzd0UsCzSZKs_YnMQ5j86-8bDa7gzyo0JUJRRACoJ4CzDQ6xpxXVa5o7HPpqZlTUoNjQ3eoXR4-xZKW7HRccPrkaRJKby5WZUD4uXIVJ-q8RKmI7WjFS9rkg1gtwbUZqBcSIMox8j594fErV_qqcmJ6o92bcgPMJ78NFqtRtH9YiS29MwYBIocoimf4Yu7mi7nNaFdUKfcT-6DKYV2tADOYYWR0joTykWsJ1S3NLHaRAuUofA9rrmIXkCdz0n4otDJQ8tKkrAGn6bjMvjDptFlGBwvKv-9gmcnHrPSMx1HCOZoNfa0v6EdcWcaDcc6-gRzNWjOxO9VHy7kxLM0xNHwKbWhJG48UT7VMYpevnAKFXJ_zpISB_JW926pPVfxozwF9zdZkCXFbiNJNC1DMZyvMWdCjd5NnvVHoZzFiIOp2k58smbyHIUsek485x0X77mVPR5wtTu-72o0iTUFwqyg9a6ASEzg6_t0-It4FCqLp08SHb4ukDbLS2Uop_RQjGpG6RUjiY6l-xw8gs4Kx=s1454-w1454-h1444-no " class="image">
             <img src="https://lh3.googleusercontent.com/smMpuUOuwC_GqVmi6QUyIDpMygcPawOlMGT8c3EGK0YAywvtvjabMeKLQ5ZLEo3hONUAQ22djb9yo1QlwH8nQpZDeluYblTmaqcV6usgKuPkFOgcjY7NhRdI-BemipLoue5VAZKAd6fEMZKoq4xOtnobzx1VgcIGMvnCj-A7sG4aLlO8p3v6QC8kGGMMlCR4zds8gc_tYeMYqmE3KKabH3aNdXkOmKZjdnb6ca5gyPmiM_0Q_izFv2sfX2T65KWaiC_kieWJ-jlOYrm1Fme35ZabmYCOZfaVlwaRnikhFfDu2mD5MQUPYzKxlsnrhmvnR3oiaQCHrB8Ke35cZveFd1UW-wM5HqVW-pXQ6DnT6RmKUGQGpPvd32-JQ042tXwjcxhn0_KxcUnc_n56KJPpfknWioTgeA2qHn06NT2aOw1tp4ZAFsXU7ywOc9HlFf9OALbw3Klxfz1M5m4kA-pF2nOc210V1BrTVaK3mF5hiw0W9Wj7SYM3c_Gnt-cpn5oKzJUFiHGoA5VWX3k4nxbuyOSSBsK-v3E_GWE7RqC8DA6bqVr0fR8pryIBpOt_=s1444-no " class="image">
             <img src="https://lh3.googleusercontent.com/WHl3AXRhDK0mqob3UF9-Q6OeFxm7Air8KrpIUX6RVlPd2E86acohu0mcfJ_sWyNP8jL0Sm0pZnLG3l3Jk1e0faVNJOmldKUoxSNc-CPg1m57FOZrfpTfIicuZlVT8-rXYcO54TQSWZV20a2rq3c_NTtncUK-tO_EdNdkC9O-IX008KVn3gbQIpJJPFYfh-h99s2x7ri-QIlaO96cfB0sZ_CgfeS7QOcKAuJ-gRF2bD9AFqqjPliwN2pv8swieJ0s90Npr7Bb-fr74OdwVQO_vgp0ZLYu73tVAGST-Rt35mwZQMnmQdL1Jmav-UiXIHiKtTg7p-_TTO8zNYLQCJK89qRq4-GCcuD0HCbG-Sz-OJfAKnHcRDg4zzEB4bfwkvh12w_W6citO85br2t-aGBm2pES-UqyGMI8ZVHJp8ACKlJpZUjQ9FLdQwvkNnsIGEns-OpZBLTwVfGA6PKX1EM0aCgsOBHue17mxQEOIT9QjeqgXYqAlCQ8h5K5-2ryTFU--hVrayDbeUMH0SyMP5BR6xQdJLWdL5lSd0HBXhkS9jzEPiNNWVDo_O5ZEQNV=s1446-w1446-h1444-no " class="image">
@@ -196,7 +196,7 @@
             select2.appendChild(el);
         }
 
-        let see_my_sky_bt = document.querySelector('#see_my_sky_bt');
+        let see_my_sky_bt = document.querySelector('.btn-primary');
         see_my_sky_bt.onclick = function(e) {
             document.getElementById("email_submit").style.display = "block";
             document.getElementById("container").style.display = "none";

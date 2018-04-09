@@ -1,5 +1,8 @@
 from django.db import models
 
+import os
+
+
 # Create your models here.
 
 
@@ -11,6 +14,9 @@ class Skies(models.Model):
 
     def __str__(self):      # this is for the admin panel
         return str(self.diary_date)  # this will show up in the admin panel instead of "object skies"
+
+    def proof_filename(self):
+        return os.path.basename(self.watermarked_proof.name)
 
 
 class Request(models.Model):
