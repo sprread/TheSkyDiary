@@ -2,20 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Purchase Your Sky Diary</title>
+    <title>Sky Diary Prints</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+        .inputs{
+            margin-left: 50px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
 <body>
-    <h1>PURCHASE YOUR SKY DIARY</h1>
-    <h2>Please fill out the following information and we will send email an invoice:</h2>
+    <div class="card mb-3">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Purchase Your Sky Diary for {{ inquiry_date }}</h5>
+            <p class="card-text">Sky Diary Prints are just $85 and come framed in a giftbox</p>
+            <p class="card-text"><small class="text-muted">Please fill out the following information so that we can email you an invoice and text you when your print is ready:</small></p>
+        </div>
+    </div>
 
     <form method="POST">
         {% csrf_token %}
-        <input type="text" name="first_name" placeholder="first name">
-        <input type="text" name="last_name" placeholder="last name">
-        <input type="tel" name="telephone" placeholder="phone number">
-        <input type="text" name="notes" placeholder="notes">
-
-
+        <div class="inputs">
+            <input type="text" name="first_name" placeholder="first name" autofocus="autofocus" required>
+            <input type="text" name="last_name" placeholder="last name" required>
+            <input type="tel" name="telephone" placeholder="cell phone" required>
+            <!--<input type="text" name="email" placeholder="email" required>-->
+        </div>
+        <div class="inputs">
+            <textarea type="textarea" placeholder="notes (additional prints, etc.)"></textarea>
+        </div>
+        <div class="inputs">
+            <button class="btn btn-lg btn-info">Reserve Your Print</button>
+        </div>
 
     </form>
 </body>

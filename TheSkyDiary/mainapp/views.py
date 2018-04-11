@@ -33,9 +33,12 @@ def thankyou(request):
                       diary_date__month=sky_month,
                       diary_date__day=sky_day).count() >= 1:
         sky = Skies.objects.get(diary_date__year=sky_year, diary_date__month=sky_month, diary_date__day=sky_day)
+
+        url = 'localhost:8000/prints/?inquiry_id=' + str(inquiry.id)
+
         email = EmailMessage(
             'Your Sky Diary Proof',
-            'Your Sky Diary is attached below!  To purchase a print, click this link',
+            'Your Sky Diary is attached below!  To purchase a print, click this link: ' + url,
             'yourskydiary@gmail.com',
             [inquiry.email],
         )
@@ -55,8 +58,13 @@ def thankyou(request):
 
 
 def prints(request):
-
-    return render(request, 'TheSkyDiary/prints.html')
+    inquiry_id = request.GET['inquiry_id']
+    # look inquiry with this id
+    inquiry = Request.objects.get(id=inquiry_id)
+    inquiry_date = inquiry.diary_date
+    # pass that data to the template to be rendered
+    context = {'inquiry_date': inquiry_date}
+    return render(request, 'TheSkyDiary/prints.html', context)
 
 def Bootstrap(request):
 

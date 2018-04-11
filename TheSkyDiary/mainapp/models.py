@@ -40,6 +40,9 @@ class Orders(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT)
     date = models.DateField()
     items = models.CharField(max_length=100) # is this correct?
+    # invoice sent
+    # invoice paid
+    # order sent
 
     def __str__(self):
         return self.customer_id
@@ -48,6 +51,7 @@ class Orders(models.Model):
 class Order_items(models.Model):
     sky_id = models.CharField(max_length=20)
     order_number = models.ForeignKey(Orders, on_delete=models.PROTECT)
+    # This should allow multiple skies to be ordered on one order.
 
     def __str__(self):
         return self.sky_id
