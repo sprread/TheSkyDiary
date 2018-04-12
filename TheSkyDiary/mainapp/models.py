@@ -19,10 +19,7 @@ class Skies(models.Model):
         return os.path.basename(self.watermarked_proof.name)
 
 
-class Request(models.Model):
-    email = models.CharField(max_length=40)
-    diary_date = models.DateField()
-    email_sent = models.BooleanField()
+
 
 
 class Customer(models.Model):
@@ -36,13 +33,20 @@ class Customer(models.Model):
         return self.first_name + " " + self.last_name
 
 
+class Request(models.Model):
+    email = models.CharField(max_length=40)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    diary_date = models.DateField()
+    email_sent = models.BooleanField()
+
+
 class Orders(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT)
-    date = models.DateField()
-    items = models.CharField(max_length=100) # is this correct?
-    # invoice sent
-    # invoice paid
-    # order sent
+    order_date = models.DateField()  # This should be the date that it was ordered on.
+    items = models.CharField(max_length=100) # is this correct? ... want this to be the diary date.
+    invoice_sent = models.BooleanField(default=False)
+    invoice_paid = models.BooleanField(default=False)
+    order_sent = models.BooleanField(default=False)
 
     def __str__(self):
         return self.customer_id

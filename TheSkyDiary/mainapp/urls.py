@@ -9,5 +9,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('thankyou/', views.thankyou, name="thankyou"),
     path('prints/', views.prints, name="prints"),
-    path('Bootstrap/', views.Bootstrap, name="Bootstrap"),
+    path('reserve/', views.reserve, name="reserve"),
 ]
