@@ -16,27 +16,26 @@
     <div class="card mb-3">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Purchase Your Sky Diary for {{ inquiry_date }}</h5>
+            <h5 class="card-title">Purchase The Sky Diary for {{ inquiry_date }}</h5>
             <p class="card-text">Sky Diary Prints are just $85 and come framed in a giftbox</p>
-            <p class="card-text"><small class="text-muted">Please fill out the following information so that we can email you an invoice and text you when your print is ready:</small></p>
+            <p class="card-text"><small class="text-muted">Please fill out your contact information so we can confirm your request and text you when your print is ready:</small></p>
         </div>
     </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        <div class="inputs">
-            <input type="text" name="first_name" placeholder="first name" autofocus="autofocus" required>
-            <input type="text" name="last_name" placeholder="last name" required>
-            <input type="tel" name="telephone" placeholder="cell phone" required>
-            <!--<input type="text" name="email" placeholder="email" required>-->
+    <form method="POST"  class= "PostCustomerForm"> {% csrf_token %}
+        {{ form.as_p }}
+        <!--<div class="inputs">-->
+            <!--<input type="text" name="first-name" placeholder="first name" autofocus="autofocus" required>-->
+            <!--<input type="text" name="last-name" placeholder="last name" required>-->
+            <!--<input type="tel" name="telephone" placeholder="cell phone" required>-->
+            <!--&lt;!&ndash;<input type="text" name="email" placeholder="email" required>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="inputs">-->
+            <!--<textarea type="textarea" name= "notes" placeholder="notes:"></textarea>-->
+        <!--</div>-->
+        <!--<div class="inputs">-->
+            <button class="btn btn-lg btn-info" type="submit">Reserve Your Print</button>
         </div>
-        <div class="inputs">
-            <textarea type="textarea" placeholder="notes (additional prints, etc.)"></textarea>
-        </div>
-        <div class="inputs">
-            <button class="btn btn-lg btn-info">Reserve Your Print</button>
-        </div>
-
     </form>
 </body>
 </html>

@@ -10,5 +10,4 @@ urlpatterns = [
     path('thankyou/', views.thankyou, name="thankyou"),
     path('prints/', views.prints, name="prints"),
     path('Bootstrap/', views.Bootstrap, name="Bootstrap"),
-
 ]

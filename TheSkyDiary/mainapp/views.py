@@ -1,17 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from . models import Request, Skies
+from . models import Request, Skies, Customer
 from django.core.mail import send_mail, EmailMessage
 from datetime import datetime
 import smtplib
 import email.utils
 from email.mime.text import MIMEText
+from .forms import PostCustomerForm
 
 # Create your views here.
 
+
 def index(request):
     return render(request, 'TheSkyDiary/index.html')
-
 
 
 def thankyou(request):
@@ -44,6 +45,7 @@ def thankyou(request):
         )
         email.attach_file('./uploaded_files/images/'+sky.proof_filename())
         email.send()
+        inquiry.email_sent = True
 
     else:
         email_admin = EmailMessage(
@@ -63,8 +65,21 @@ def prints(request):
     inquiry = Request.objects.get(id=inquiry_id)
     inquiry_date = inquiry.diary_date
     # pass that data to the template to be rendered
-    context = {'inquiry_date': inquiry_date}
-    return render(request, 'TheSkyDiary/prints.html', context)
+
+    if request.method == 'POST':
+        print("buysky req:", request)
+        form = PostCustomerForm(request.POST)
+        if form.is_valid():
+                customer = form.save(commit=False)
+                customer.save()
+        return render(request, 'TheSkyDiary/Bootstrap.html')
+    else:
+        form = PostCustomerForm()
+    return render(request, 'TheSkyDiary/prints.html', {'inquiry_date': inquiry_date, 'form': form})
+
+
+
+
 
 def Bootstrap(request):
 
