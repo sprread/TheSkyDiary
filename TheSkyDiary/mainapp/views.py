@@ -85,7 +85,7 @@ def prints(request):
         order = Orders()
         order.order_date = datetime.now()
         order.customer_id = customer  # Took this out because causing an error
-
+        order.diary_date = inquiry_date
         # order.items = Customer.notes  # might want to change this later
 
         order.save()
