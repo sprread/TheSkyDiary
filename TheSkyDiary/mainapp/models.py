@@ -43,7 +43,7 @@ class Request(models.Model):
 class Orders(models.Model):
     customer_id = models.ForeignKey(Customer, on_delete=models.PROTECT)
     order_date = models.DateField()  # This should be the date that it was ordered on.
-    # diary_date = models.DateField()  # ***why is this not working? ...
+    diary_date = models.DateField()  # ***why is this not working? ...
     items = models.CharField(max_length=100) # this is notes that they add in the field.
     invoice_sent = models.BooleanField(default=False)
     invoice_paid = models.BooleanField(default=False)
