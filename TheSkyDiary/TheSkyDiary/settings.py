@@ -26,7 +26,8 @@ SECRET_KEY = 'q(iyvrua^hw41h182j49t1sk%z1@5u-sox2b+_$bwgont3*pu+'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'theskydiary-dev.us-west-2.elasticbeanstalk.com'
+    'theskydiary-dev.us-west-2.elasticbeanstalk.com',
+    'theskydiary.com',
 ]
 
 
