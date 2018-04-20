@@ -47,7 +47,7 @@ def thankyou(request):
                             diary_date__day=sky_day).count() >= 1:
         sky = Skies.objects.get(diary_date__year=sky_year, diary_date__month=sky_month, diary_date__day=sky_day)
 
-        url = 'localhost:8000/prints/?inquiry_id=' + str(inquiry.id)
+        url = 'theskydiary.com/prints/?inquiry_id=' + str(inquiry.id)
 
         email = EmailMessage(
             'Your Sky Diary Proof',
@@ -58,6 +58,7 @@ def thankyou(request):
         email.attach_file('./uploaded_files/images/'+sky.proof_filename())
         email.send()
         inquiry.email_sent = True
+        inquiry.save()
 
     else:
         email_admin = EmailMessage(
