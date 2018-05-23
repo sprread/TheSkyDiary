@@ -84,6 +84,7 @@
         #email_submit{
             display: none;
         }
+
         #container{
             color: rgb(255, 255, 255);
             /*opacity: .5;*/
@@ -136,6 +137,12 @@
             border-radius: 10px;
 
         }
+        #back-btn {
+            font-size: 36px;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            color: white;
+
+        }
 
     </style>
 </head>
@@ -165,7 +172,8 @@
 
                 <!--email-->
                 <div id="email_submit">
-                    <input type="text" name="email" autofocus="autofocus" placeholder="enter email" required class="email">
+                    <button id="back-btn"> <&nbsp;&nbsp;&nbsp; </button>
+                    <input type="text" name="email" autofocus="autofocus" placeholder="email address" required class="email">
                     <button type="submit" class="btn-submit" formaction="{% url 'skydiary:thankyou' %}">Send Sky Diary</button>
                 </div>
         </form>
@@ -330,6 +338,12 @@
 
         }
 
+        let back_btn = document.querySelector('#back-btn');
+        back_btn.onclick = function(){
+            document.getElementById("email_submit").style.display = "none";
+            document.getElementById("container").style.display = "block";
+            return false;
+        }
 
 
         select.value = 'January';
